@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+
+{% load static %}
+
+{% block content %}
+
+<h3> News detail </h3>
+
+{% if news %}
+    <p>{{news.title}}</p>
+    <img src="{{news.photo.url}}" alt="news_photo" width="600" height="350">
+    <p>{{news.body}}</p>
+    <p class="display-4">{{news.date}}</p>
+{% endif %}
+
+{% endblock %}

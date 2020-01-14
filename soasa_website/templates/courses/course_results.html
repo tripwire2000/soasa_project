@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h3>Search Results </h3>
+    
+    <form action="{% url 'search' %}">
+    <label for="search">Search</label>
+    <input type="text" name="search" id="search">
+    <input type="submit" value="Search" value="{{ values.search }}" placeholder= "{{values.search}}">
+</form>
+
+    {% if all_courses %}
+        {% for course in all_courses%}
+        <h5>{{course.name}}</h5>
+        <p>{{course.course_code}}</p>
+        <button><a href="{% url 'course' course.id %}">View course details</a></button>
+        {% endfor %}
+    {% endif %}
+
+    <h2>Course code results</h2>
+    {% if course_code_courses  %}
+        {% for course in course_code_courses %}
+        <h5>{{course.name}}</h5>
+        <p>{{course.course_code}}</p>
+        <button><a href="{% url 'course' course.id %}">View course details</a></button>
+        {% endfor %}
+    {% endif %}
+
+{% endblock %}

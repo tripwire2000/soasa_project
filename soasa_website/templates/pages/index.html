@@ -1,0 +1,171 @@
+{% extends 'base.html' %}
+
+
+{% load static %}
+
+{% block content %}
+
+
+    
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                    Facilis voluptate distinctio deserunt officia quibusdam 
+                    et quis, magni neque eaque, error aspernatur! Dolores 
+                    alias dolor recusandae illo quo repellat voluptatem nobis 
+                    iusto, laboriosam sint? Nobis dolore, deleniti earum 
+                    veritatis deserunt cupiditate distinctio ratione est tempora 
+                    laboriosam cumque inventore vero qui facilis at nostrum
+                    harum reiciendis aperiam labore nisi itaque? Dolorem impedit 
+                    tempore quod sit nulla corrupti culpa blanditiis ipsum sequi 
+                    vel saepe officia, quia aperiam. Voluptates, impedit 
+                    reprehenderit! Nisi excepturi quasi ad quis, deserunt 
+                    quibusdam perspiciatis dolores officia aperiam sint doloribus 
+                    ipsam id temporibus aliquid ducimus, tempora architecto molestias 
+                    porro enim?
+                </p>
+            </div>
+        </div>
+        <h3>Executives</h3>
+        <div class="row">
+            {% if members %}
+                {% for member in members %}
+                    <div class="card border-0"  style="width: 15em; padding: 5px; margin:10px; text-align: center;">
+                        {% if member.photo %}
+                            <a href="{% url 'member' member.id %}"><img src="{{ member.photo.url }}" alt="Member Photo" width="200" height="150" class="rounded-circle mx-auto d-block"></a>
+                        {% else %}
+                            <p>No photograph to show</p>
+                        {% endif %}
+            
+                        <div class="card-body">
+                            <p>{{member.name}}</p>
+            
+                            {% if member.description %}
+                            <h5>{{member.description}}</h5>
+
+                            {% endif %}    
+                        </div>
+                        <a href="{% url 'member' member.id %}" class="btn btn-success">View profile</a><br> 
+                    </div>
+    
+                {% endfor %}
+                
+            {% endif %}
+        </div>
+        <button><a href="{% url 'all_members' %}">View more members</a></button>
+
+        <br><br>
+
+        <div class="col-md-10">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                Facilis voluptate distinctio deserunt officia quibusdam 
+                et quis, magni neque eaque, error aspernatur! Dolores 
+                alias dolor recusandae illo quo repellat voluptatem nobis 
+                iusto, laboriosam sint? Nobis dolore, deleniti earum 
+                veritatis deserunt cupiditate distinctio ratione est tempora 
+                laboriosam cumque inventore vero qui facilis at nostrum
+                harum reiciendis aperiam labore nisi itaque? Dolorem impedit 
+                tempore quod sit nulla corrupti culpa blanditiis ipsum sequi 
+                vel saepe officia, quia aperiam. Voluptates, impedit 
+                reprehenderit! Nisi excepturi quasi ad quis, deserunt 
+                quibusdam perspiciatis dolores officia aperiam sint doloribus 
+                ipsam id temporibus aliquid ducimus, tempora architecto molestias 
+                porro enim?
+            </p>
+        </div>
+
+        <h3>Courses</h3>
+
+        <div class="row">
+            {% if courses %}
+                {% for course in courses %}
+                    <div class="card" style="width: 15rem; padding: 5px; text-align: center; margin:5px; border-radius:20px;">
+                                
+                        <div class="card-body">
+                            <h5 class="card-title"><a href="{% url 'course' course.id %}">{{course.name}}</a></h5>
+                            <p class="card-text"><a href="{% url 'course' course.id %}">{{course.course_code}}</a></p>
+    
+                            <a href="{% url 'course' course.id %}" class="btn btn-success">View course details</a>
+                        </div>
+                    </div>
+                {% endfor %}
+
+            {% endif %}
+        </div>
+        <button><a href="{% url 'courses_all' %}">View more courses</a></button>
+    </div>
+
+
+    <!--
+    {% if members %}
+        {% for member in members %}
+           <div class="card"  style="width: 300px; padding: 5px;">
+                {% if member.photo %}
+                    <a href="{% url 'member' member.id %}"><img src="{{ member.photo.url }}" alt="Member Photo" width="200" height="150" class="rounded-circle mx-auto d-block"></a>
+                {% else %}
+                    <p>No photograph to show</p>
+                {% endif %}
+            
+                <div class="card-body">
+                    <p>{{member.name}}</p>
+            
+                    {% if member.description %}
+                        <h4>{{member.description}}</h4>
+                    {% endif %}
+                </div>
+                <a href="{% url 'member' member.id %}" class="btn btn-success">View profile</a><br><br>
+           </div>
+    
+        {% endfor %}
+            <button><a href="{% url 'all_members' %}">View more members</a></button>
+    {% endif %}
+    -->
+
+    <br><br><br>
+
+    <!--
+    <h2>Courses</h2>
+
+    <div class="container">
+        <div class="row">
+            {% if courses %}
+                {% for course in courses %}
+                    <div class="card" style="width: 300px; padding: 5px; text-align: center; margin:5px; border-radius:20px;">
+                            
+                        <div class="card-body">
+                            <h5 class="card-title"><a href="{% url 'course' course.id %}">{{course.name}}</a></h5>
+                            <p class="card-text"><a href="{% url 'course' course.id %}">{{course.course_code}}</a></p>
+
+                            <a href="{% url 'course' course.id %}" class="btn btn-success">View course details</a>
+                        </div>
+                    </div>
+                {% endfor %}
+                
+            {% endif %}
+        </div>
+            <br>
+            <button><a href="{% url 'courses_all' %}">View more courses</a></button>
+            <br><br>
+    </div>
+    -->
+
+    <!--
+    {% if courses %}
+        {% for course in courses %}
+            <h2><a href="{% url 'course' course.id %}">{{course.name}}</a></h2>
+            <p><a href="{% url 'course' course.id %}">{{course.course_code}}</a></p>
+        
+            <button><a href="{% url 'course' course.id %}">View course details</a></button>
+        {% endfor %}
+            <br><br>
+            <button><a href="{% url 'courses_all' %}">View more courses</a></button>
+            <br><br>
+    {% endif %}
+-->
+
+    
+
+
+{% endblock %}

@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2> All courses </h2>
+
+    <!--
+    {% if allcourses %}
+        {% for course in allcourses %}
+            <h2><a href="{% url 'course' course.id %}">{{course.name}}</a></h2>
+            <p><a href="#">{{course.course_code}}</a></p>
+            
+            <button><a href="{% url 'course' course.id %}">View course details</a></button>
+        {% endfor %}
+    {% endif%}
+    -->
+    <form action="{% url 'search' %}">
+        <label for="search">Search</label>
+        <input type="text" name="search" id="search">
+        <input type="submit" value="Search" value="{{ values.search }}" placeholder= "{{values.search}}">
+    </form>
+
+    <h3>LEVEL 100</h3>
+    {% if level_100_courses %}
+        {% for course in level_100_courses %}
+        <h2><a href="{% url 'course' course.id %}">{{course.name}}</a></h2>
+        <p><a href="#">{{course.course_code}}</a></p>
+        
+        <button><a href="{% url 'course' course.id %}">View course details</a></button>
+        {% endfor %}
+    {% endif %}
+
+    <h3>LEVEL 200</h3>
+    {% if level_200_courses %}
+        {% for course in level_200_courses %}
+        <h2><a href="{% url 'course' course.id %}">{{course.name}}</a></h2>
+        <p><a href="#">{{course.course_code}}</a></p>
+        
+        <button><a href="{% url 'course' course.id %}">View course details</a></button>
+        {% endfor %}
+    {% endif %}
+
+    <h3>LEVEL 300</h3>
+    {% if level_300_courses %}
+        {% for course in level_300_courses %}
+        <h2><a href="{% url 'course' course.id %}">{{course.name}}</a></h2>
+        <p><a href="#">{{course.course_code}}</a></p>
+        
+        <button><a href="{% url 'course' course.id %}">View course details</a></button>
+        {% endfor %}
+    {% endif %}
+
+    <h3>LEVEL 400</h3>
+    {% if level_400_courses %}
+        {% for course in level_400_courses %}
+        <h2><a href="{% url 'course' course.id %}">{{course.name}}</a></h2>
+        <p><a href="#">{{course.course_code}}</a></p>
+        
+        <button><a href="{% url 'course' course.id %}">View course details</a></button>
+        {% endfor %}
+    {% endif %}
+{% endblock %}

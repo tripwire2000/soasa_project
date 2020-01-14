@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+
+{% load static %}
+
+{% block content %}
+    
+
+    <h3>News</h3>
+    {% if all_news %}
+        {% for news in all_news %}
+            <p><a href="{% url 'single_news' news.id %}">{{news.title}}</a></p>
+            <a href="{% url 'single_news' news.id %}"><img src="{{news.photo.url}}" alt="photo" width="300" height="200"></a>
+            <p>{{news.snippet}}</p>
+            <p>{{news.date}}</p>
+        {% endfor %}
+    {% endif %}
+
+
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2> Course details </h2>
+    
+    <h3>{{course.name}}</h3>
+
+    <h5>{{course.course_code}}</h5>
+
+    Description:
+    {% if course.description %}
+        <p>{{course.description}}</p>
+    {% else %}
+        <p> No description available </p>
+    {% endif %}
+    
+    Requirements:
+    {% if course.requirements %}
+        <p>{{course.requirements}}</p>
+    {% else %}
+        <p>No requirements</p>
+    {% endif %}
+
+{% endblock %}

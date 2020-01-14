@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h3>Search Results </h3>
+    
+    <form action="{% url 'search_member' %}">
+    <label for="search">Search</label>
+    <input type="text" name="search" id="search">
+    <input type="submit" value="Search" value="{{ values.search }}" placeholder= "{{values.search}}">
+</form>
+
+    {% if all_members %}
+        {% for member in all_members%}
+            {% if member.photo %}
+                <a href="{% url 'member' member.id %}"><img src="{{ member.photo.url }}" alt="Member Photo" width="200" height="120"></a>
+            {% else %}
+                <p>No photograph to show</p>
+            {% endif %}
+            <p>{{member.name}}</p>
+            <button><a href="{% url 'member' member.id %}">View profile</a></button><br><br>
+        {% endfor %}
+    {% endif %}
+
+   
+{% endblock %}
