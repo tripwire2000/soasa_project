@@ -3,7 +3,7 @@ from members.models import Member
 from courses.models import Course
 from .models import NewsItem
 
-# Create your views here.
+# Create your views here. 
 def index(request):
     members = Member.objects.filter(is_current=True)[:4]
     courses = Course.objects.all()[:4]  
